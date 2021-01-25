@@ -1,0 +1,192 @@
+{
+	"info": {
+		"_postman_id": "fb7f6583-3fbc-4da8-8345-82fbc49a18e3",
+		"name": "Cars",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Login",
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {
+					"content-type": true
+				}
+			},
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"email\": \"admin@admin.com\",\r\n    \"password\":\"adminpass\"\r\n}"
+				},
+				"url": {
+					"raw": "{{hostname}}/authentication_token",
+					"host": [
+						"{{hostname}}"
+					],
+					"path": [
+						"authentication_token"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create Car",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"some car\",\r\n    \"price\":1000,\r\n    \"currency\": \"EUR\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{hostname}}/api/cars",
+					"host": [
+						"{{hostname}}"
+					],
+					"path": [
+						"api",
+						"cars"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get car",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{hostname}}/api/cars/{id}",
+					"host": [
+						"{{hostname}}"
+					],
+					"path": [
+						"api",
+						"cars",
+						"{id}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get cars",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"url": {
+					"raw": "{{hostname}}/api/cars",
+					"host": [
+						"{{hostname}}"
+					],
+					"path": [
+						"api",
+						"cars"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Modify Car",
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {
+					"content-type": true
+				}
+			},
+			"request": {
+				"method": "PATCH",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/merge-patch+json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"New Car name\",\r\n    \"price\": 22.2,\r\n    \"currency\": \"EUR\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{hostname}}/api/cars/{id}",
+					"host": [
+						"{{hostname}}"
+					],
+					"path": [
+						"api",
+						"cars",
+						"{id}"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJpYXQiOjE2MTE1OTQ3OTksImV4cCI6MTYxMTU5ODM5OSwicm9sZXMiOlsiUk9MRV9VU0VSIl0sInVzZXJuYW1lIjoiYWRtaW5AYWRtaW4uY29tIn0.H52t5bCCd1Q5mlqoNM2QtTKjeRqRqR-eneRpITL5Cl54G-gl-OAAaz7gDWLm9iRBIMUeqieEDTgM6hLRF8QenAywBtasZHH3ZszrMm1oWTZfZppYjzvYAJS2LQmidCy3VoP24pQZKxrPcRqiudUaIXsgWfjnVHZUvccJkP2NaMnY138ZT3jHg87UGWpF5tljdUnuyNgRXyovoHiPXaEAzA8CsyHdqylREtfEnE9z29xA35JZFXNDqy7_KL9nB0OliixAouRJPGXzyhk9RYE4yqZZcuJFfiUzL7DiDk4RRuiJ7Q662NGfa0tK2GSB9yKi6x4q6Z5yr5bJzC8tK88Qs-4aTjPVcEbosJQT1XKsMZ9rhPVCbP7lFJhguOQnVOF2Qpfw1J96dOCMo-ZqDf8UU-knjB7SDGlvWeQ5GHFqA7W9ipHJIwZ9NA_I-aYa82mLB_TVGNoT7lQ4qrxo7WLYoCayjgD2YK3MPiT8a6o3JHWKF6hCsG8pGzj4HHy8CzWoKyFuYdjmAwEWGRRpOviRw7OtIPF73k22uS7h6c681UhWCIu25gDbVCyIW80JYBh_i4pr6jOsrm8b5lDIh4CCN5tMDxzN6fHUIx4UpAGZE9mkvmQVZJoonXMgn9q1y2GEP3RX6ckDh1VuJ1Vokle8sLiNgQLntt--jz_hWB6FrVg",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "hostname",
+			"value": ""
+		}
+	]
+}
